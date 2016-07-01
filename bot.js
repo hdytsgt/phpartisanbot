@@ -52,6 +52,15 @@ controller
  */
 var BOT = {
 
+	/**
+	 * Run artisan command
+	 * 
+	 * @param  bot
+	 * @param  message
+	 * @param  command
+	 * 
+	 * @return void
+	 */
 	runCommand: function( bot, message, command ) {
 		
 		controller.storage.teams.get( 'current', function( error, data ) {
@@ -87,6 +96,16 @@ var BOT = {
 		});
 	},
 
+	/**
+	 * Register Project into Storage
+	 * 
+	 * @param  bot
+	 * @param  message
+	 * @param  path
+	 * @param  projectName
+	 * 
+	 * @return void
+	 */
 	registerProject: function( bot, message, path, projectName ) {
 
 		var _invalid = 'You already have a project with this name sir! :pensive: Check your project by `list projects`';
@@ -108,6 +127,15 @@ var BOT = {
 		});
 	},
 
+	/**
+	 * List Project inside Storage
+	 * 
+	 * @param  bot
+	 * @param  message
+	 * @param  displayMessage
+	 * 
+	 * @return void
+	 */
 	listProject: function( bot, message, displayMessage = false ) {
 
 		var _projects = '';
@@ -139,6 +167,17 @@ var BOT = {
 		});
 	},
 
+	/**
+	 * Validate Project if Already Exists or Not
+	 * 
+	 * @param  bot
+	 * @param  message
+	 * @param  projectName
+	 * @param  invalidMessage
+	 * @param  callback
+	 * 
+	 * @return void
+	 */
 	validateProject: function( bot, message, projectName, invalidMessage, callback ) {
 
 		controller.storage.teams.get( projectName, function( error, data ) {
@@ -152,6 +191,15 @@ var BOT = {
 		});
 	},
 
+	/**
+	 * Set Project as Main Project
+	 * 
+	 * @param bot
+	 * @param message
+	 * @param projectName
+	 *
+	 * @return void
+	 */
 	setProject: function( bot, message, projectName ) {
 
 		controller.storage.teams.get( projectName, function( error, data ) {
