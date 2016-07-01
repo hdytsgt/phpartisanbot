@@ -26,7 +26,7 @@ There are few commands available, following command sorted by usage steps :
 
 4. `run <artisan command>`
 
-   Where **artisan command** is anything from Laravel's artisan commands, you can see available commands [here](https://laravel.com/docs/5.1/artisan) or just type `run list`
+   Where **artisan command** is anything from Laravel's artisan commands, you can see available commands [here](https://laravel.com/docs/master/artisan) or just type `run list`
 
 
 
