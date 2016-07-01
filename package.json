@@ -1,16 +1,14 @@
 {
-  "name": "stackoverbot",
+  "name": "phpartisanbot",
   "version": "1.0.0",
-  "description": "Slack bot for search Stack Overflow snippet",
+  "description": "Run your php artisan command through Slack!",
   "author": "Hidayat Sagita",
   "main": "bot.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hdytsgt/stackoverbot.git" 
+    "url": "https://github.com/hdytsgt/phpartisanbot.git" 
   },
   "dependencies": {
-    "cheerio": "^0.20.0",
-    "request": "^2.72.0",
     "botkit": "^0.2.2"
   },
   "devDependencies": {},
@@ -19,10 +17,8 @@
     "Bot",
     "Node",
     "Js",
-    "Cheerio",
-    "Google",
-    "Search",
-    "Stack",
-    "Overflow"
+    "Laravel",
+    "artisan",
+    "php"
   ]
 }
