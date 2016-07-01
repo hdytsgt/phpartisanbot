@@ -4,7 +4,7 @@ A Node.js-based Slack bot for running Laravel's `php artisan` through chat.
 
 This bot require [Slack Bot Token](https://my.slack.com/services/new/bot).
 
-
+![Screenshot](https://raw.githubusercontent.com/hdytsgt/phpartisanbot/master/screenshot.png)
 
 ## Available Command
 
@@ -61,7 +61,3 @@ Some artisan commands usage :
 And many more!
 
 
-
-## Screenshot
-
-![Screenshot](https://raw.githubusercontent.com/hdytsgt/phpartisanbot/master/screenshot.png)
