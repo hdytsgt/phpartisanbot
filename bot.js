@@ -3,19 +3,20 @@
 /**
  * API Key & Token
  */
-const SlackToken   = '<Your Bot Slack Token>';
+const SlackToken   = 'xoxb-56031931990-klSHUtBWn9c7l68sKVd8xqGD';
 
 /**
  * Define Required vars
  */
-var botkit  = require( 'botkit' ),
-    exec    = require( 'child_process' ).exec;
+var botkit   = require( 'botkit' ),
+    exec     = require( 'child_process' ).exec,
+    cstorage = require( './lib/custom_storage' )( { path: './storage' } );
 
 /**
  * Build up Slack
  */
 var controller = botkit.slackbot({
-                    json_file_store: 'storage'
+                    storage: cstorage
                  });
 var bot        = controller.spawn({ 
                     token: SlackToken
@@ -24,8 +25,8 @@ var bot        = controller.spawn({
 /**
  * Fireup Slack's Real Time Messaging
  */
-bot.startRTM( function( err, bot, payload ) {
-	if( err ){
+bot.startRTM( function( error, bot, payload ) {
+	if( error ){
 		throw new Error( 'Could not connect to Slack' );
 	}
 });
@@ -42,6 +43,9 @@ controller
 	})
 	.hears( [ 'use (.*)' ], 'direct_message,direct_mention,mention', function( bot, message ) {
 	    BOT.setProject( bot, message, message.match[1] );
+	})
+	.hears( [ 'remove (.*)' ], 'direct_message,direct_mention,mention', function( bot, message ) {
+	    BOT.removeProject( bot, message, message.match[1] );
 	})
 	.hears( [ 'run (.*)' ], 'direct_message,direct_mention,mention', function( bot, message ) {
 	    BOT.runCommand( bot, message, message.match[1] );
@@ -71,7 +75,7 @@ var BOT = {
 
 				controller.storage.teams.get( projectName, function( error, data ) {
 
-					var _command = 'php ' + data.path + '/artisan ' + command
+					var _command = 'php ' + data.path + '/artisan ' + command;
 
 					bot.reply( message, 'Executing your command under *'+ projectName +'*.... :hourglass:' );
 
@@ -223,6 +227,42 @@ var BOT = {
 			
 			}
 		});
-	}
+	},
 
+	/**
+	 * Remove Project from Storage
+	 * 
+	 * @param  bot
+	 * @param  message
+	 * @param  projectName
+	 * 
+	 * @return void
+	 */
+	removeProject: function( bot, message, projectName ) {
+
+		controller.storage.teams.get( projectName, function( error, data ) {
+
+			if( !error ) {
+
+				controller.storage.teams.delete( projectName , function( error ) {
+
+					if( error ) throw new Error( 'Something wrong while removing project : ' + error );
+
+					bot.reply( message, 'Okay! Project is removed sir! :tada:' );
+				
+				});
+
+				controller.storage.teams.get( 'current', function( error, data ) {
+					if( data.project == projectName ) {
+						controller.storage.teams.delete( 'current' );
+					}
+				});
+
+			} else {
+
+				bot.reply( message, 'Project *'+ projectName +'* is not exists sir! :confused:' );
+			
+			}
+		});
+	}
 };

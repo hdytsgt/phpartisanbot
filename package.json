@@ -6,10 +6,11 @@
   "main": "bot.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hdytsgt/phpartisanbot.git" 
+    "url": "https://github.com/hdytsgt/phpartisanbot.git"
   },
   "dependencies": {
-    "botkit": "^0.2.2"
+    "botkit": "^0.2.2",
+    "jfs": "^0.2.6"
   },
   "devDependencies": {},
   "keywords": [
