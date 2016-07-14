@@ -3,7 +3,7 @@
 /**
  * API Key & Token
  */
-const SlackToken   = 'xoxb-56031931990-klSHUtBWn9c7l68sKVd8xqGD';
+const SlackToken   = '<Your Bot Slack Token>';
 
 /**
  * Define Required vars
