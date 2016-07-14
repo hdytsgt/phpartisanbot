@@ -4,7 +4,7 @@ A Node.js-based Slack bot for running Laravel's `php artisan` through chat.
 
 This bot require [Slack Bot Token](https://my.slack.com/services/new/bot).
 
-![Screenshot](https://raw.githubusercontent.com/hdytsgt/phpartisanbot/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/hdytsgt/phpartisanbot/master/media/screenshot.png)
 
 ## Available Command
 
@@ -24,7 +24,11 @@ There are few commands available, following command sorted by usage steps :
 
    Where **project-name** is your registered project name. This command will make your project as main project and will be used globally when you run any Laravel's artisan command
 
-4. `run <artisan command>`
+4. `remove <project-name>`
+
+   This command will remove your project from project list.
+
+5. `run <artisan command>`
 
    Where **artisan command** is anything from Laravel's artisan commands, you can see available commands [here](https://laravel.com/docs/master/artisan) or just type `run list`
 
