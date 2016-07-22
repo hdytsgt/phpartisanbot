@@ -41,7 +41,8 @@ This should just works as any other Node.js application.
 
 1. Pull this repo
 2. Go to **phpartisanbot** folder and run `npm install`
-3. Run `node bot.js` or you can use any Node.js manager like [PM2](https://github.com/Unitech/PM2/) : `pm2 start bot.js`
+3. Open `bot.js` and add your Slack Bot Token into `SlackToken` var.
+4. Run `node bot.js` or you can use any Node.js manager like [PM2](https://github.com/Unitech/PM2/) : `pm2 start bot.js`
 
 
 
